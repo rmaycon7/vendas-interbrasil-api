@@ -1,28 +1,23 @@
+/* simples middleware em express para remover o erro CORS */
+// Autor : Maycon Arruda
+// Data : 27/05/2024
+
 // include dependencies
 const express = require("express");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const cors = require("cors");
 const app = express();
 
+/* 
+aqui foi adicionando o CORS para concertar o erro na hora deconsultar a api de cnpj
+*/
+
 app.use(cors());
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   // req.header("Access-Control-Allow-Origin", "*");
-//   // req.header(
-//   //   "Access-Control-Allow-Headers",
-//   //   "Origin, X-Requested-With, Content-Type, Accept"
-//   // );
-//   // // req
-//   next();
-// });
 
 // create the proxy
 /** @type {import('http-proxy-middleware/dist/types').RequestHandler<express.Request, express.Response>} */
 const exampleProxy = createProxyMiddleware({
+  /* colocando o caminho path do site da api */
   target: "https://receitaws.com.br/", // target host with the same base path
   changeOrigin: true, // needed for virtual hosted sites
 });
