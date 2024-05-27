@@ -24,7 +24,22 @@ const exampleProxy = createProxyMiddleware({
 
 // mount `exampleProxy` in web server
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8000;
+
+
+// const watiing =() =>{
+//   setTimeout(() => {
+    
+//   }, 15000);
+// }
+
+app.use('/', (req, res, next) =>{
+  console.log('before timeout');
+  setTimeout(() => {
+    console.log('in timeout');
+    next()
+  }, 15000);
+})
 app.use("/", exampleProxy);
 
 app.listen(port, () => {
