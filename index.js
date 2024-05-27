@@ -33,13 +33,13 @@ const port = process.env.PORT || 8000;
 //   }, 15000);
 // }
 
-app.use('/', (req, res, next) =>{
-  console.log('before timeout');
-  setTimeout(() => {
-    console.log('in timeout');
-    next()
-  }, 15000);
-})
+// app.use('/', (req, res, next) =>{
+//   console.log('before timeout');
+//   setTimeout(() => {
+//     console.log('in timeout');
+//     next()
+//   }, 15000);
+// })
 app.use("/", exampleProxy);
 
 app.listen(port, () => {
