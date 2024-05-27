@@ -43,5 +43,6 @@ const port = process.env.PORT || 8000;
 app.use("/", exampleProxy);
 
 app.listen(port, () => {
+  console.log('Após alguns percalços, aqui estamos');
   console.log("running in " + port);
 });
