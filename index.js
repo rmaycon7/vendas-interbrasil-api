@@ -18,7 +18,7 @@ app.use(cors());
 /** @type {import('http-proxy-middleware/dist/types').RequestHandler<express.Request, express.Response>} */
 const exampleProxy = createProxyMiddleware({
   /* colocando o caminho path do site da api */
-  target: "https://receitaws.com.br/", // target host with the same base path
+  target: "https://api.cnpjs.dev/", // target host with the same base path
   changeOrigin: true, // needed for virtual hosted sites
 });
 
